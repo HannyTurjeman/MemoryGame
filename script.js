@@ -1,11 +1,22 @@
 const $gameBoard = document.getElementById('board'),
       $startOverButton = document.getElementById('start'),
+      $audio = document.getElementById('audio'),
+      $countSteps = document.getElementById('countsteps'),
+      $timer = document.getElementById('timer'),
       disneyHeroes = ['ariel', 'aladin', 'jasmin', 'piterpen', 'moana', 'baz', 'ariel2', 'aladin2', 'jasmin2', 'piterpen2', 'moana2', 'baz2'];
       
 let coountFlips = 0,
 firstSelectedLi = "",
 secSelectedLi = "",
-countCards = 0;
+countCards = 0,
+countSteps = 0,
+timerRun = 0;
+
+
+const soundsUrls = {
+    wrong: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/250758/wronganswer.mp3',
+    correct: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/250758/rightanswer.mp3'
+}
 
 const photoUrls = {
     ariel: './photos/ariel.jpg',
@@ -20,6 +31,12 @@ const photoUrls = {
     aladin2: './photos/aladin.jpg',
     baz2: './photos/baz.jpg',
     piterpen2: './photos/piterpen.jpg',
+}
+
+const CountTime = () => {
+    timerRun++;
+    $timer.innerHTML = timerRun;
+
 }
 
 const shuffle = (disneyArray) => {
@@ -43,15 +60,23 @@ const createLevel = () => {
     hero = hero.replace(/[0-9]/g, '');
     liElement.dataset.id = hero;
      $gameBoard.appendChild(liElement);
-     coountFlips = 0;
-     firstSelectedLi = "";
-     secSelectedLi = "";
-     countCards = 0;
+
   });
-  
+  coountFlips = 0;
+  firstSelectedLi = "";
+  secSelectedLi = "";
+  countCards = 0;
+  countSteps = 0;
+  $countSteps.innerHTML = countSteps;
+  timerRun = 0;
+  $timer.innerHTML = "0";
+  timerFunc = setInterval(CountTime, 1000);
 }
 
 createLevel();
+
+
+
 
 const selectedAnswer = ($event) => {
     isLiElement = $event.target.nodeName === 'LI';
@@ -78,14 +103,26 @@ const selectedAnswer = ($event) => {
         secSelectedLi.style.backgroundSize = "cover";
         secSelectedLi.style.backgroundPosition = "center";
 
+        countSteps++;
+        $countSteps.innerHTML = countSteps;
+
         if (firstSelectedLi.dataset.id === secSelectedLi.dataset.id) {
             console.log("Well done");
+            $gameBoard.classList.add('correct');
             firstSelectedLi.classList.add('correct');
             secSelectedLi.classList.add('correct');
+            
+            $audio.src = soundsUrls.correct;
+            $audio.play();
+            
             coountFlips = 0;
             firstSelectedLi = "";
             secSelectedLi = "";
             countCards = countCards + 2;
+
+            setTimeout(() => {
+                $gameBoard.classList.remove('correct');
+            }, 1300);
     
         } else {
             
@@ -101,6 +138,7 @@ const selectedAnswer = ($event) => {
     }
 
     if (countCards === 12) {
+        clearInterval(timerFunc);
         setTimeout(() => {
             createLevel();
         }, 2000);

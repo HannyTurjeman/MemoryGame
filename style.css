@@ -18,7 +18,13 @@ html, body {
     align-items: center;
     flex-wrap: wrap;
     background-color: rgb(59, 59, 161);
+    transition: background-color 400ms;
   }
+
+  #board.correct {
+    background-color: lightseagreen;
+  }
+
   #board li {
     width: 80px;
     height: 80px;
@@ -42,3 +48,30 @@ html, body {
     font-size: 25px;
     font-weight: bold;
   }
+
+  span {
+    width: 315px; 
+    height: 30px; 
+    display: flex;
+      justify-content: space-between;
+      /* border: 1px solid black; */
+  }
+
+  div {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  timer {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
