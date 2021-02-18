@@ -1,0 +1,44 @@
+html, body {
+    height: 100%;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  #board {
+    width: 290px;
+    border: 2px solid black;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: rgb(59, 59, 161);
+  }
+  #board li {
+    width: 80px;
+    height: 80px;
+    border: 2px solid black;
+    margin: 6px;
+    list-style: none;
+    border-radius: 6px;
+    background-color: oldlace;
+    cursor: pointer;
+
+  }
+
+  #board li.correct {
+    pointer-events: none;
+  }
+  
+  #start {
+    margin: 10px;
+    width: 150px;
+    height: 40px;
+    font-size: 25px;
+    font-weight: bold;
+  }
