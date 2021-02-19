@@ -10,7 +10,8 @@ firstSelectedLi = "",
 secSelectedLi = "",
 countCards = 0,
 countSteps = 0,
-timerRun = 0;
+timerRun = 0
+timerFunc = 0;
 
 
 const soundsUrls = {
@@ -39,6 +40,8 @@ const CountTime = () => {
 
 }
 
+
+
 const shuffle = (disneyArray) => {
   let counter = disneyArray.length;
   while (counter > 0) {
@@ -51,17 +54,26 @@ const shuffle = (disneyArray) => {
   return disneyArray;
 }
 
-const createLevel = () => {
-  $gameBoard.innerHTML = "";
-  const newArray = shuffle(disneyHeroes);
-  newArray.forEach((hero) => {
-    const liElement = document.createElement('li');
-    liElement.id = hero;
-    hero = hero.replace(/[0-9]/g, '');
-    liElement.dataset.id = hero;
-     $gameBoard.appendChild(liElement);
+const initialCards = () => {
 
-  });
+    $gameBoard.innerHTML = "";
+    $timer.innerHTML = "0";
+    const newArray = shuffle(disneyHeroes);
+    newArray.forEach((hero) => {
+      const liElement = document.createElement('li');
+      liElement.id = hero;
+      hero = hero.replace(/[0-9]/g, '');
+      liElement.dataset.id = hero;
+       $gameBoard.appendChild(liElement);
+    });
+
+    $gameBoard.classList.add('initial');
+}
+
+const createLevel = () => {
+  initialCards();
+  clearInterval(timerFunc);
+  $gameBoard.classList.remove('initial');
   coountFlips = 0;
   firstSelectedLi = "";
   secSelectedLi = "";
@@ -69,12 +81,12 @@ const createLevel = () => {
   countSteps = 0;
   $countSteps.innerHTML = countSteps;
   timerRun = 0;
-  $timer.innerHTML = "0";
   timerFunc = setInterval(CountTime, 1000);
 }
 
-createLevel();
 
+
+initialCards();
 
 
 
@@ -139,9 +151,6 @@ const selectedAnswer = ($event) => {
 
     if (countCards === 12) {
         clearInterval(timerFunc);
-        setTimeout(() => {
-            createLevel();
-        }, 2000);
     }
     
   console.log($event.target);
