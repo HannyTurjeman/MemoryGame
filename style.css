@@ -40,6 +40,7 @@ html, body {
     border-radius: 6px;
     background-color: oldlace;
     cursor: pointer;
+    box-shadow: 10px 10px 10px -10px;
 
   }
 
@@ -54,6 +55,12 @@ html, body {
     font-size: 25px;
     font-weight: bold;
     font-family: 'Poppins', sans-serif;
+    background-color: mediumseagreen;
+    outline: none;
+    cursor: pointer;
+    border-radius: 6px;
+    box-shadow: 20px 10px 20px -15px;
+    border: none;
   }
 
   span {
