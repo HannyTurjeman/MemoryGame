@@ -50,7 +50,7 @@ html, body {
   
   #start {
     margin: 10px;
-    width: 150px;
+    width: 200px;
     height: 40px;
     font-size: 25px;
     font-weight: bold;
@@ -61,6 +61,12 @@ html, body {
     border-radius: 6px;
     box-shadow: 20px 10px 20px -15px;
     border: none;
+  }
+
+
+  #start:active {
+    cursor: grab;
+    transform: scale(0.9);
   }
 
   span {

@@ -74,6 +74,7 @@ const createLevel = () => {
   initialCards();
   clearInterval(timerFunc);
   $gameBoard.classList.remove('initial');
+  $gameBoard.classList.add('correct');
   coountFlips = 0;
   firstSelectedLi = "";
   secSelectedLi = "";
@@ -81,6 +82,9 @@ const createLevel = () => {
   countSteps = 0;
   $countSteps.innerHTML = countSteps;
   timerRun = 0;
+  setTimeout(() => {
+    $gameBoard.classList.remove('correct');
+}, 900);
   timerFunc = setInterval(CountTime, 1000);
 }
 
