@@ -10,7 +10,7 @@ firstSelectedLi = "",
 secSelectedLi = "",
 countCards = 0,
 countSteps = 0,
-timerRun = 0
+timerRun = 0,
 timerFunc = 0;
 
 
