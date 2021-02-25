@@ -12,7 +12,7 @@ secSelectedLi = "",
 countCards = 0,
 countSteps = 0,
 score = 0,
-timerRun = 30,
+timerRun = 40,
 timerFunc = 0;
 
 
@@ -72,7 +72,7 @@ const shuffle = (disneyArray) => {
 const initialCards = () => {
 
     $gameBoard.innerHTML = "";
-    $timer.innerText = "30";
+    $timer.innerText = "40";
     $countSteps.innerText = "0";
     $score.innerText = "0";
 
@@ -98,7 +98,7 @@ const createLevel = () => {
   secSelectedLi = "";
   countCards = 0;
   countSteps = 0;
-  timerRun = 30;
+  timerRun = 40;
   score = 0;
   setTimeout(() => {
     $gameBoard.classList.remove('correct');
