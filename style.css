@@ -8,6 +8,18 @@ html, body {
     align-items: center;
     flex-direction: column;
     font-family: 'Poppins', sans-serif;
+    margin: 0;
+    /* background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUBESGyaOWQJlmR8RVYDGX5yHD1Bo7HoioNw&usqp=CAU"); */
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdE1zwHJbdgoN4Th6GNyavxvKQqh4ZVjUkvg&usqp=CAU");
+    background-size: cover;
+    background-position: center;
+
+  }
+
+  h1 {
+
+    font-size: 36px;
+    margin: 5px;
   }
   
   #board {
@@ -44,6 +56,11 @@ html, body {
 
   }
 
+
+  #board li.open {
+    pointer-events: none;
+  }
+
   #board li.correct {
     pointer-events: none;
   }
@@ -74,6 +91,7 @@ html, body {
     height: 30px; 
     display: flex;
       justify-content: space-between;
+      user-select: none;
       /* border: 1px solid black; */
   }
 
@@ -82,8 +100,9 @@ html, body {
     justify-content: center;
     flex-direction: row;
     align-items: center;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: bold;
+    /* user-select: none; */
   }
 
   timer {
@@ -91,7 +110,7 @@ html, body {
     justify-content: center;
     flex-direction: row;
     align-items: center;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: bold;
   }
 

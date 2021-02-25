@@ -7,15 +7,18 @@
     <title>MemoryGame</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <link rel="stylesheet" href="./style.css">
     <script async src="./script.js"></script>
 </head>
 <body>
     <audio id="audio"></audio>
-
+    <h1>Memory Game</h1>
     <span>
+        <div>Score: <div id="score">0</div></div>  
         <div>Steps: <div id="countsteps">0</div></div>
-        <timer>Timer: <timer id="timer">0</timer></timer>
+        <timer>Timer: <timer id="timer">30</timer></timer>
     </span>
 
     <ul id="board"></ul>
