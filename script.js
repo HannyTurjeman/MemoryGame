@@ -11,12 +11,9 @@ firstSelectedLi = "",
 secSelectedLi = "",
 countCards = 0,
 countSteps = 0,
-<<<<<<< HEAD
 score = 0,
 timerRun = 30,
-=======
 timerRun = 0,
->>>>>>> 43220b19467349272b92162ce25e1a72e4ba2d10
 timerFunc = 0;
 
 
