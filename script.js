@@ -13,7 +13,6 @@ countCards = 0,
 countSteps = 0,
 score = 0,
 timerRun = 30,
-timerRun = 0,
 timerFunc = 0;
 
 
