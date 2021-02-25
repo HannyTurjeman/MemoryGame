@@ -32,6 +32,7 @@ html, body {
     flex-wrap: wrap;
     background-color: rgb(59, 59, 161);
     transition: background-color 400ms;
+    margin: 4px;
   }
 
   #board.correct {
@@ -88,14 +89,14 @@ html, body {
 
   span {
     width: 315px; 
-    height: 30px; 
     display: flex;
       justify-content: space-between;
       user-select: none;
       /* border: 1px solid black; */
+    margin: 0;
   }
 
-  div {
+  timers {
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -104,13 +105,3 @@ html, body {
     font-weight: bold;
     /* user-select: none; */
   }
-
-  timer {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    align-items: center;
-    font-size: 20px;
-    font-weight: bold;
-  }
-
